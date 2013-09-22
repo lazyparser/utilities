@@ -24,7 +24,7 @@ for i in $@; do
 	cat "$i" |\
 		grep '====' -A 29 |\
 		grep 'ms' |\
-		grep '^    \|Total' |\
+		grep '^  \|Total' |\
 		sed  's:ms +/-.*$::' |\
 		sed  's:^\s*::' |\
 		sed  's/:\s*/,/' |\
