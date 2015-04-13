@@ -1,0 +1,22 @@
+diff --git a/build/autoconf/android.m4 b/build/autoconf/android.m4
+index e432f97..ee9e1f5 100644
+--- a/build/autoconf/android.m4
++++ b/build/autoconf/android.m4
+@@ -361,6 +361,8 @@ case "$target" in
+         fi
+     done
+ 
++    android_build_tools="$android_sdk_root/build-tools"
++    all_android_build_tools="$all_android_build_tools:$android_build_tools"
+     if test -d "$android_build_tools" -a -f "$android_build_tools/aapt"; then
+         AC_MSG_RESULT([$android_build_tools])
+     else
+@@ -397,7 +399,7 @@ case "$target" in
+ 
+     dnl Google has a history of moving the Android tools around.  We don't
+     dnl care where they are, so let's try to find them anywhere we can.
+-    ALL_ANDROID_TOOLS_PATHS="$ANDROID_TOOLS$all_android_build_tools:$ANDROID_PLATFORM_TOOLS"
++    ALL_ANDROID_TOOLS_PATHS="$ANDROID_TOOLS:$all_android_build_tools:$ANDROID_PLATFORM_TOOLS"
+     MOZ_PATH_PROG(ZIPALIGN, zipalign, :, [$ALL_ANDROID_TOOLS_PATHS])
+     MOZ_PATH_PROG(DX, dx, :, [$ALL_ANDROID_TOOLS_PATHS])
+     MOZ_PATH_PROG(AAPT, aapt, :, [$ALL_ANDROID_TOOLS_PATHS])
