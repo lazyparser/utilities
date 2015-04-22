@@ -11,6 +11,8 @@ set -e -x
 mkdir deeto_build
 cd deeto_build
 build_dir=`pwd`
+n_cores=`cat /proc/cpuinfo | grep cores | wc -l`
+
 # Prerequirments
 # cmake >= 2.8
 yum install cmake
@@ -26,7 +28,7 @@ cd ./InsightToolkit-4.7.1/
 mkdir build
 cd build
 cmake ..
-make -j 16
+make -j $n_cores
 make install
 
 # we don't have rpms for tclap, so just build it. 
@@ -36,7 +38,7 @@ wget 'http://downloads.sourceforge.net/project/tclap/tclap-1.2.1.tar.gz' \
 tar xf tclap-1.2.1.tar.gz
 cd ./tclap-1.2.1/
 ./configure
-make -j 16
+make -j $n_cores
 make install
 
 cd $build_dir
@@ -45,7 +47,7 @@ wget 'https://github.com/mnarizzano/DEETO/archive/master.zip' \
 unzip DEETO-master.zip
 cd DEETO-master/
 cmake CMakeLists.txt
-make -j 16
+make -j $n_cores
 make install
 
 deeto --version
