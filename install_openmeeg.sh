@@ -2,6 +2,11 @@
 
 set -e -x
 
+if [ $UID -ne 0 ]; then
+echo "Run me as root."
+exit 1
+fi
+
 # Check if openMEEG has been installed.
 [ -f /usr/local/bin/om_assemble ] && exit 0
 
@@ -11,7 +16,11 @@ unzip openmeeg-master.zip
 cd openmeeg-master
 mkdir build
 cd build
-cmake -DBUILD_TESTING=ON -DCMAKE_BUILD_TYPE=Release -DUSE_PROCESSBAR=ON -DENABLE_PYTHON=ON -DUSE_OMP=ON ..
+cmake -DBUILD_TESTING=ON \
+	-DCMAKE_BUILD_TYPE=Release \
+	-DUSE_PROCESSBAR=ON \
+	-DENABLE_PYTHON=ON \
+	-DUSE_OMP=ON ..
 make -j 12
 #make est / check
 make install
