@@ -18,6 +18,6 @@ while True:
             digit = int(data, 16)
             crc = crc ^ digit
             print "%x ==> %x" % (digit, crc)
-	except ValueError:
-	    print "Wrong input: not a hex value. Ignored."
+        except ValueError:
+            print "Wrong input: not a hex value. Ignored."
 
