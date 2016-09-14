@@ -1,0 +1,26 @@
+ubuntu 16.04
+------------
+
+finally in xenial
+modprobe ath9k
+
+Ubuntu 12.04
+------------
+
+sudo apt-get install linux-headers-generic build-essential
+wget http://www.orbit-lab.org/kernel/compat-wireless-3-stable/v3.6/compat-wireless-3.6.6-1-snpc.tar.bz2
+tar xvf compat*
+cd compat-wireless-3.6.6-1-snpc
+sudo su
+./scripts/driver-select ath9k
+make
+make install
+modprobe ath9k
+exit
+
+
+http://blog.csdn.net/tonyjiang08/article/details/38400633
+
+then:
+http://askubuntu.com/questions/396040/network-unclaimed-for-ar9565-qualcom-atheros
+
