@@ -1,0 +1,27 @@
+# copied from TinyLab's Open C Book
+
+# very handful for Copy & Paste ops
+:set paste
+:set nopaste
+
+
+
+    :syntax on|off
+    :set    cin[dent]  C语言自动缩进(可简写为   set cin  )
+    :set    sw=8     自动缩进宽度(需要  set cin  才有用)
+    :set    ts=8     设定   TAB 宽度
+    :set    number   显示行号
+    :set    nonumber     不显示行号
+    :setsm   括号自动匹配
+
+# Awesome
+:TOhtml
+
+# fight with TAB
+:set et #expandtab
+:retab
+
+# search and op
+g/^$/d
+
+
