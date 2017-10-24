@@ -55,6 +55,7 @@ do
 	
 	newname=`echo "$i" | \
 		sed 's/%28//g;s/%29//g' |\
+		sed 's/%20/./g' |\
 		sed 's/(/./g;s/)/./g' |\
 		sed 's/%5B//g;s/%5D//g' |\
 		sed 's/\[//g;s/\]//g' |\
