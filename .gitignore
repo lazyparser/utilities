@@ -2,3 +2,4 @@
 *.bak
 .hg/
 tmpdata/
+.DS_Store
